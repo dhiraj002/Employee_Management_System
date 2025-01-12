@@ -20,7 +20,7 @@ const CreateTask = () => {
         const newTask = { taskTitle, taskDescription, taskDate, category, active: false, newTask: true, failed: false, completed: false };
 
         const updatedAuthData = AuthData.map((user) => {
-            if (user.firstName === asignTo) {
+            if (user.firstName.toLowerCase() === asignTo.toLowerCase()) {
                 return {
                     ...user,
                     tasks: [...user.tasks, newTask],
@@ -29,7 +29,6 @@ const CreateTask = () => {
             }
             return user;
         });
-        console.log(updatedAuthData);
 
         setAuthData(updatedAuthData); // Update the context state
 
